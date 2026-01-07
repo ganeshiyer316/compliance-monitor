@@ -1,0 +1,38 @@
+name: Compliance Scan
+
+on:
+  workflow_dispatch:  # Manual trigger via GitHub Actions tab
+  schedule:
+    - cron: '0 9 * * 1'  # Weekly on Mondays at 9am UTC (optional)
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run compliance scan
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python run.py scan || echo "Scan completed with warnings"
+
+      - name: Generate dashboard data
+        run: python run.py dashboard
+
+      - name: Commit updated dashboard
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add dashboard/data.json
+          git commit -m "Update compliance dashboard data [skip ci]" || echo "No changes to commit"
+          git push || echo "Nothing to push"

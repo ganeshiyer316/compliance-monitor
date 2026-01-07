@@ -1,0 +1,21 @@
+system:
+  mode: "manual"
+  log_level: "INFO"
+  data_dir: "data"
+  logs_dir: "logs"
+
+scraping:
+  timeout_seconds: 30
+  user_agent: "ComplianceMonitor/1.0"
+  rate_limit_seconds: 3
+  max_retries: 3
+
+intelligence:
+  claude_model: "claude-opus-4-5-20251101"
+  max_tokens: 8000
+  temperature: 0.1
+
+alerts:
+  terminal_output: true
+  high_priority_only: false
+  min_relevance_score: 5

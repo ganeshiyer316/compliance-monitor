@@ -1,0 +1,33 @@
+company:
+  name: "Demo Crypto Exchange"
+  mccs:
+    - 6051  # Crypto/Digital Currency
+    - 6211  # Securities Brokers/Dealers
+    - 7995  # Gambling/Betting/Casino/Lottery
+  regions:
+    - "MENA"
+    - "Europe"
+    - "Global"
+  psps:
+    - "Checkout.com"
+    - "Nuvei"
+  keywords:
+    - "AFT"
+    - "crypto"
+    - "cryptocurrency"
+    - "digital currency"
+    - "gambling"
+    - "betting"
+    - "casino"
+    - "lottery"
+    - "gaming"
+    - "securities"
+    - "brokerage"
+    - "KYC"
+    - "AML"
+    - "compliance"
+    - "transaction"
+    - "payment"
+    - "high-risk"
+    - "fraud monitoring"
+    - "chargeback"

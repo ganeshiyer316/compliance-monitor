@@ -1,0 +1,37 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip install:*)",
+      "Bash(python -m pip install:*)",
+      "Bash(winget:*)",
+      "Bash(where /R \"C:\\\\Users\\\\ganes\\\\AppData\\\\Local\\\\Programs\" python.exe)",
+      "Bash(where /R \"C:\\\\Program Files\" python.exe)",
+      "Bash(py:*)",
+      "Bash(powershell.exe -Command \"python --version\")",
+      "Bash(powershell.exe:*)",
+      "Bash(\"C:\\\\Users\\\\ganes\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\python.exe\" --version)",
+      "Bash(\"C:\\\\Users\\\\ganes\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\python.exe\" -m pip install -r requirements.txt)",
+      "Bash(test:*)",
+      "Bash(\"C:\\\\Users\\\\ganes\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\python.exe\" run.py init)",
+      "Bash(\"C:\\\\Users\\\\ganes\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\python.exe\" run.py list)",
+      "Bash(\"C:\\\\Users\\\\ganes\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\python.exe\" -c \"import sqlite3; conn = sqlite3.connect\\(''data/compliance.db''\\); cursor = conn.cursor\\(\\); cursor.execute\\(''SELECT name FROM sqlite_master WHERE type=\"\"table\"\"''\\); print\\(''Tables:'', [row[0] for row in cursor.fetchall\\(\\)]\\); conn.close\\(\\)\")",
+      "Bash(\"C:\\\\Users\\\\ganes\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\python.exe\" run.py export)",
+      "Bash(\"C:\\\\Users\\\\ganes\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\python.exe\" -c \"import sqlite3, json; conn = sqlite3.connect\\(''data/compliance.db''\\); cursor = conn.cursor\\(\\); cursor.execute\\(''SELECT mccs, regions, transaction_types FROM compliance_items LIMIT 1''\\); row = cursor.fetchone\\(\\); print\\(''MCCs:'', repr\\(row[0]\\)\\); print\\(''Regions:'', repr\\(row[1]\\)\\); print\\(''Transaction Types:'', repr\\(row[2]\\)\\); conn.close\\(\\)\")",
+      "Bash(\"C:\\\\Users\\\\ganes\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\python.exe\" run.py demo)",
+      "Bash(\"C:\\\\Users\\\\ganes\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\python.exe\" run.py stats)",
+      "Bash(\"C:\\\\Users\\\\ganes\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\python.exe\" run.py list --impact high)",
+      "Bash(\"C:\\\\Users\\\\ganes\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\python.exe\" run.py scan)",
+      "Bash(\"C:\\\\Users\\\\ganes\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\python.exe\" -m pip show anthropic)",
+      "Bash(\"C:\\\\Users\\\\ganes\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\python.exe\" -m pip install --upgrade anthropic)",
+      "Bash(\"C:\\\\Users\\\\ganes\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\python.exe\" -c \"import sqlite3; conn = sqlite3.connect\\(''data/compliance.db''\\); cursor = conn.cursor\\(\\); cursor.execute\\(''SELECT id, source_id, scraped_at, status, LENGTH\\(content\\) as content_length FROM snapshots ORDER BY id DESC LIMIT 5''\\); print\\(''Recent Snapshots:''\\); for row in cursor.fetchall\\(\\): print\\(f''ID: {row[0]} | Source: {row[1]} | Time: {row[2]} | Status: {row[3]} | Size: {row[4]} chars''\\); conn.close\\(\\)\")",
+      "Bash(\"C:\\\\Users\\\\ganes\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\python.exe\" check_snapshots.py)",
+      "Bash(\"C:\\\\Users\\\\ganes\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\python.exe\" preview_content.py)",
+      "Bash(\"C:\\\\Users\\\\ganes\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\python.exe\" -c \"import sqlite3; conn = sqlite3.connect\\(''data/compliance.db''\\); cursor = conn.cursor\\(\\); cursor.execute\\(''DELETE FROM compliance_items''\\); cursor.execute\\(''DELETE FROM changes WHERE id <= 7''\\); conn.commit\\(\\); print\\(''Deleted demo data''\\); cursor.execute\\(''SELECT COUNT\\(*\\) FROM compliance_items''\\); print\\(f''Remaining compliance items: {cursor.fetchone\\(\\)[0]}''\\); conn.close\\(\\)\")",
+      "Bash(\"C:\\\\Users\\\\ganes\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\python.exe\" analyze_baseline.py)",
+      "Bash(\"C:\\\\Users\\\\ganes\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\python.exe\" run.py dashboard)",
+      "Bash(start dashboard/index.html)",
+      "Bash(git init:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}

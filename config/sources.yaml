@@ -1,0 +1,20 @@
+sources:
+  - name: "Nuvei - Card Scheme Programs"
+    url: "https://docs.nuvei.com/documentation/security-docs/risk-guide/schemes-programs/"
+    type: "psp_docs"
+    active: true
+
+  - name: "Checkout.com - AFT Guide"
+    url: "https://www.checkout.com/docs/payments/manage-payments/perform-an-account-funding-transaction"
+    type: "psp_docs"
+    active: true
+
+  - name: "Visa Developer - Visa Direct"
+    url: "https://developer.visa.com/capabilities/visa_direct/docs"
+    type: "visa_portal"
+    active: true
+
+  - name: "CBUAE - Regulations"
+    url: "https://www.centralbank.ae/en/regulations"
+    type: "regulator"
+    active: false  # Blocked by their firewall, deactivated for now

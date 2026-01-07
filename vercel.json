@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "name": "compliance-monitor",
+  "builds": [
+    {
+      "src": "dashboard/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/dashboard/$1"
+    }
+  ],
+  "functions": {
+    "dashboard/**": {
+      "memory": 1024,
+      "maxDuration": 10
+    }
+  }
+}
