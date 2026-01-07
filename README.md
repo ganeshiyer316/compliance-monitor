@@ -1,10 +1,10 @@
-# Compliance Monitor
+# Payment Compliance Monitor
 
 Automated system for monitoring Visa, Mastercard, PSP, and regulatory changes affecting payment businesses.
 
 ## Problem
 
-Payment companies learn about compliance deadlines 2-3 months before they hit, creating expensive fire drills. Example: Visa AFT requirements for March 2026 that most companies learned about in December 2025.
+Payments teams (Product, Commercial, Operations, Compliance) learn about compliance deadlines 2-3 months before they hit, creating expensive fire drills. Example: Visa AFT requirements for March 2026 that most companies learned about only in December 2025.
 
 ## Solution
 
@@ -348,17 +348,16 @@ MIT License - Feel free to use for commercial purposes.
 
 ## Author
 
-Built by Ganesh Gunti
-- Targeting Dubai fintech companies
-- Solving real compliance monitoring problems
+Built by Ganesh Iyer
+- Targeting highly regulated industries (e.g. Gambling, Crypto, Brokerage/Securities)
+- Solving real payment compliance monitoring problems
 - Demonstrating multi-agent AI systems
 
 ## Contact
 
 Questions? Feedback? Want to hire me?
-- GitHub: [Your GitHub]
-- LinkedIn: [Your LinkedIn]
-- Email: [Your Email]
+- LinkedIn: https://www.linkedin.com/in/ganesh-iyer-38317616/
+- Email: ganesh.iyer316@gmail.com
 
 ---
 
