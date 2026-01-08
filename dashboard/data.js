@@ -1,4 +1,4 @@
-{
+window.COMPLIANCE_DATA = {
   "last_updated": "2026-01-08T20:38:32.002915",
   "total_items": 15,
   "items": [
@@ -547,4 +547,4 @@
       "type": "regulatory"
     }
   ]
-}
+};

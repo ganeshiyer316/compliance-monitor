@@ -1,24 +1,58 @@
 {
-  "last_updated": "2026-01-08T20:38:32.002915",
-  "total_items": 15,
-  "items": [
+  "manual_compliance_items": [
+    {
+      "id": "mastercard-aft-nz-jan2026",
+      "title": "Mastercard AFT Mandate for New Zealand (MCC 4829, 6538, 6540)",
+      "deadline": "2026-01-31",
+      "mccs": ["4829", "6538", "6540"],
+      "regions": ["New Zealand"],
+      "transaction_types": ["AFT"],
+      "impact_level": "high",
+      "hard_lock": true,
+      "source_name": "Mastercard",
+      "source_url": "https://www.mastercard.com/news/",
+      "summary": "Mastercard mandates Account Funding Transactions (AFT) implementation for money transfer services (MCC 4829), crypto merchants (6538), and prepaid card providers (6540) operating in New Zealand. All qualifying merchants must migrate from OCTs to AFTs by January 31, 2026.",
+      "technical_requirements": [
+        "Implement AFT API instead of OCT",
+        "Include sender and recipient data in transactions",
+        "Update transaction processing systems",
+        "Ensure compliance with local NZ regulations"
+      ],
+      "keywords": ["AFT", "mastercard-mandate", "new-zealand", "money-transfer", "crypto", "prepaid"],
+      "relevance_score": 9,
+      "notes": "Verified deadline from Mastercard official communications. Hard-locked.",
+      "type": "scheme_mandate"
+    },
+    {
+      "id": "mastercard-aft-global-feb2026",
+      "title": "Mastercard AFT Mandate for UK, Europe, US, Singapore (MCC 4829, 6538, 6540)",
+      "deadline": "2026-02-28",
+      "mccs": ["4829", "6538", "6540"],
+      "regions": ["UK", "Europe", "USA", "Singapore"],
+      "transaction_types": ["AFT"],
+      "impact_level": "high",
+      "hard_lock": true,
+      "source_name": "Mastercard",
+      "source_url": "https://www.mastercard.com/news/",
+      "summary": "Global Mastercard AFT mandate extends to UK, Europe, United States, and Singapore for money transfer services (MCC 4829), crypto merchants (6538), and prepaid card providers (6540). All qualifying merchants in these regions must migrate to AFT by February 28, 2026.",
+      "technical_requirements": [
+        "Implement AFT API for cross-border transactions",
+        "Collect and transmit sender/recipient data",
+        "Support regional compliance variations",
+        "Update settlement systems"
+      ],
+      "keywords": ["AFT", "mastercard-mandate", "global", "money-transfer", "crypto", "prepaid", "uk", "europe", "usa"],
+      "relevance_score": 10,
+      "notes": "Verified deadline from Mastercard official communications. Hard-locked.",
+      "type": "scheme_mandate"
+    },
     {
       "id": "visa-aft-mandate-mena",
       "title": "Visa Account Funding Transaction (AFT) Mandate - MENA/UK/EEA",
       "deadline": "2026-03-31",
-      "mccs": [
-        "6051",
-        "6211",
-        "7995"
-      ],
-      "regions": [
-        "MENA",
-        "UK",
-        "Europe"
-      ],
-      "transaction_types": [
-        "AFT"
-      ],
+      "mccs": ["6051", "6211", "7995"],
+      "regions": ["MENA", "UK", "Europe"],
+      "transaction_types": ["AFT"],
       "impact_level": "high",
       "hard_lock": true,
       "source_name": "Visa",
@@ -31,15 +65,7 @@
         "Integration with Visa Direct APIs",
         "OFAC screening for cross-border transactions"
       ],
-      "keywords": [
-        "AFT",
-        "visa-mandate",
-        "MENA",
-        "crypto",
-        "gambling",
-        "securities",
-        "visa-direct"
-      ],
+      "keywords": ["AFT", "visa-mandate", "MENA", "crypto", "gambling", "securities", "visa-direct"],
       "relevance_score": 10,
       "notes": "Verified March 2026 deadline for MENA region from Checkout.com compliance bulletin. Hard-locked.",
       "type": "scheme_mandate"
@@ -48,16 +74,9 @@
       "id": "mastercard-aft-crypto-canada-apr2026",
       "title": "Mastercard AFT Mandate for Crypto/Securities in Canada",
       "deadline": "2026-04-15",
-      "mccs": [
-        "6051",
-        "6211"
-      ],
-      "regions": [
-        "Canada"
-      ],
-      "transaction_types": [
-        "AFT"
-      ],
+      "mccs": ["6051", "6211"],
+      "regions": ["Canada"],
+      "transaction_types": ["AFT"],
       "impact_level": "high",
       "hard_lock": true,
       "source_name": "Checkout.com - AFT Compliance Deadlines",
@@ -69,32 +88,42 @@
         "Compliance with Canadian FINTRAC regulations",
         "Support for CAD currency settlements"
       ],
-      "keywords": [
-        "AFT",
-        "mastercard-mandate",
-        "canada",
-        "crypto",
-        "securities",
-        "brokerage"
-      ],
+      "keywords": ["AFT", "mastercard-mandate", "canada", "crypto", "securities", "brokerage"],
       "relevance_score": 8,
       "notes": "Verified deadline for Canadian crypto and securities markets. Hard-locked.",
+      "type": "scheme_mandate"
+    },
+    {
+      "id": "visa-subscription-controls-europe-apr2026",
+      "title": "Visa Cardholder Controls UI Mandate for Subscription Services (Europe)",
+      "deadline": "2026-04-18",
+      "mccs": ["5968"],
+      "regions": ["Europe"],
+      "transaction_types": ["Recurring"],
+      "impact_level": "medium",
+      "hard_lock": true,
+      "source_name": "Visa",
+      "source_url": "https://www.visa.com/",
+      "summary": "Visa mandates implementation of cardholder controls UI for subscription and continuity services (MCC 5968) in Europe. Merchants must provide easy-to-use interfaces for customers to view, modify, or cancel subscriptions directly through their card issuer's platform.",
+      "technical_requirements": [
+        "Implement Visa Transaction Controls API",
+        "Provide subscription management UI in cardholder apps",
+        "Support real-time subscription modifications",
+        "Enable one-click subscription cancellation",
+        "Compliance with European consumer protection laws"
+      ],
+      "keywords": ["visa", "subscription", "cardholder-controls", "europe", "recurring-payments", "consumer-protection"],
+      "relevance_score": 7,
+      "notes": "European mandate for subscription transparency and control. Hard-locked.",
       "type": "scheme_mandate"
     },
     {
       "id": "visa-aft-recipient-data-mar2026",
       "title": "Visa AFT Recipient Data Requirements",
       "deadline": "2026-03-31",
-      "mccs": [
-        "6051",
-        "6211"
-      ],
-      "regions": [
-        "Global"
-      ],
-      "transaction_types": [
-        "AFT"
-      ],
+      "mccs": ["6051", "6211"],
+      "regions": ["Global"],
+      "transaction_types": ["AFT"],
       "impact_level": "high",
       "hard_lock": true,
       "source_name": "Checkout.com - AFT Documentation",
@@ -107,13 +136,7 @@
         "Add recipientDetails.middlename field",
         "Ensure Latin-alphanumeric character encoding"
       ],
-      "keywords": [
-        "AFT",
-        "recipient-data",
-        "crypto",
-        "forex",
-        "KYC"
-      ],
+      "keywords": ["AFT", "recipient-data", "crypto", "forex", "KYC"],
       "relevance_score": 10,
       "notes": "Missing or incorrectly formatted parameters will cause transaction declines. Visa may apply non-compliance assessments. Hard-locked.",
       "type": "scheme_mandate"
@@ -122,17 +145,9 @@
       "id": "ukgc-bonus-wagering-jan2026",
       "title": "UK Gambling Commission - Bonus Wagering Restrictions",
       "deadline": "2026-01-19",
-      "mccs": [
-        "7995"
-      ],
-      "regions": [
-        "UK",
-        "Europe"
-      ],
-      "transaction_types": [
-        "Deposit",
-        "Bonus"
-      ],
+      "mccs": ["7995"],
+      "regions": ["UK", "Europe"],
+      "transaction_types": ["Deposit", "Bonus"],
       "impact_level": "high",
       "hard_lock": true,
       "source_name": "UK Gambling Commission - LCCP Updates",
@@ -145,29 +160,18 @@
         "Implement bonus tracking systems",
         "Ensure transparent communication"
       ],
-      "keywords": [
-        "UKGC",
-        "gambling",
-        "bonuses",
-        "wagering"
-      ],
+      "keywords": ["UKGC", "gambling", "bonuses", "wagering"],
       "relevance_score": 10,
-      "notes": "Non-compliance may result in licence review, fines up to Â£20M, or suspension. Hard-locked.",
+      "notes": "Non-compliance may result in licence review, fines up to £20M, or suspension. Hard-locked.",
       "type": "regulatory"
     },
     {
       "id": "ukgc-financial-reporting-mar2026",
       "title": "UK Gambling Commission - Financial Key Event Reporting Updates",
       "deadline": "2026-03-19",
-      "mccs": [
-        "7995"
-      ],
-      "regions": [
-        "UK"
-      ],
-      "transaction_types": [
-        "All"
-      ],
+      "mccs": ["7995"],
+      "regions": ["UK"],
+      "transaction_types": ["All"],
       "impact_level": "medium",
       "hard_lock": true,
       "source_name": "UK Gambling Commission - LCCP Changes",
@@ -180,12 +184,7 @@
         "Maintain ownership records",
         "Submit timely notifications to UKGC"
       ],
-      "keywords": [
-        "UKGC",
-        "key-events",
-        "ownership",
-        "reporting"
-      ],
+      "keywords": ["UKGC", "key-events", "ownership", "reporting"],
       "relevance_score": 9,
       "notes": "Complex structures must be clearly reported. Failure triggers licence review. Hard-locked.",
       "type": "regulatory"
@@ -194,16 +193,9 @@
       "id": "ukgc-rts-12b-jun2026",
       "title": "UK Gambling Commission - Remote Technical Standards (RTS 12B)",
       "deadline": "2026-06-30",
-      "mccs": [
-        "7995"
-      ],
-      "regions": [
-        "UK"
-      ],
-      "transaction_types": [
-        "Deposit",
-        "Withdrawal"
-      ],
+      "mccs": ["7995"],
+      "regions": ["UK"],
+      "transaction_types": ["Deposit", "Withdrawal"],
       "impact_level": "medium",
       "hard_lock": true,
       "source_name": "UKGC - RTS Guidance",
@@ -216,11 +208,7 @@
         "Test limits across all products",
         "Update customer communications"
       ],
-      "keywords": [
-        "RTS",
-        "deposit-limits",
-        "gambling"
-      ],
+      "keywords": ["RTS", "deposit-limits", "gambling"],
       "relevance_score": 9,
       "notes": "Required for all remote platforms. Non-compliance affects player protection licensing. Hard-locked.",
       "type": "regulatory"
@@ -229,16 +217,9 @@
       "id": "us-genius-act-jul2026",
       "title": "US GENIUS Act - Stablecoin Implementation Regulations",
       "deadline": "2026-07-18",
-      "mccs": [
-        "6051"
-      ],
-      "regions": [
-        "US"
-      ],
-      "transaction_types": [
-        "Stablecoins",
-        "Payment tokens"
-      ],
+      "mccs": ["6051"],
+      "regions": ["US"],
+      "transaction_types": ["Stablecoins", "Payment tokens"],
       "impact_level": "high",
       "hard_lock": true,
       "source_name": "ChainCatcher - US Crypto Policy 2026",
@@ -251,12 +232,7 @@
         "Establish AML/KYC frameworks",
         "Maintain audited reserves"
       ],
-      "keywords": [
-        "GENIUS-Act",
-        "stablecoins",
-        "licensing",
-        "US"
-      ],
+      "keywords": ["GENIUS-Act", "stablecoins", "licensing", "US"],
       "relevance_score": 10,
       "notes": "Unlicensed issuers cannot operate in US. Foreign issuers need approval. Reshape dollar-backed stablecoin market. Hard-locked.",
       "type": "regulatory"
@@ -265,15 +241,9 @@
       "id": "california-dfal-jul2026",
       "title": "California Digital Financial Assets Law (DFAL) Compliance",
       "deadline": "2026-07-01",
-      "mccs": [
-        "6051"
-      ],
-      "regions": [
-        "US - California"
-      ],
-      "transaction_types": [
-        "All crypto"
-      ],
+      "mccs": ["6051"],
+      "regions": ["US - California"],
+      "transaction_types": ["All crypto"],
       "impact_level": "high",
       "hard_lock": true,
       "source_name": "TRM Labs - Global Crypto Policy",
@@ -286,12 +256,7 @@
         "Implement consumer protection controls",
         "Submit to DFPI oversight"
       ],
-      "keywords": [
-        "California",
-        "DFAL",
-        "licensing",
-        "crypto"
-      ],
+      "keywords": ["California", "DFAL", "licensing", "crypto"],
       "relevance_score": 9,
       "notes": "Operating without license = fines + shutdown. California is largest US crypto market. Hard-locked.",
       "type": "regulatory"
@@ -300,16 +265,9 @@
       "id": "cftc-blockchain-aug2026",
       "title": "CFTC Blockchain Technology in Capital Markets",
       "deadline": "2026-08-31",
-      "mccs": [
-        "6051",
-        "6211"
-      ],
-      "regions": [
-        "US"
-      ],
-      "transaction_types": [
-        "All"
-      ],
+      "mccs": ["6051", "6211"],
+      "regions": ["US"],
+      "transaction_types": ["All"],
       "impact_level": "medium",
       "hard_lock": true,
       "source_name": "ChainCatcher - US Crypto Policy",
@@ -322,12 +280,7 @@
         "Ensure blockchain finality rules",
         "Coordinate with CFTC reporting"
       ],
-      "keywords": [
-        "CFTC",
-        "blockchain",
-        "derivatives",
-        "tokenization"
-      ],
+      "keywords": ["CFTC", "blockchain", "derivatives", "tokenization"],
       "relevance_score": 7,
       "notes": "Enables tokenized collateral in derivatives. Blockchain-based settlement gets regulatory clarity. Hard-locked.",
       "type": "regulatory"
@@ -336,16 +289,9 @@
       "id": "uae-cbuae-vasp-sep2026-updated",
       "title": "UAE CBUAE - Virtual Asset Licensing Compliance",
       "deadline": "2026-09-16",
-      "mccs": [
-        "6051"
-      ],
-      "regions": [
-        "UAE",
-        "MENA"
-      ],
-      "transaction_types": [
-        "All crypto"
-      ],
+      "mccs": ["6051"],
+      "regions": ["UAE", "MENA"],
+      "transaction_types": ["All crypto"],
       "impact_level": "high",
       "hard_lock": true,
       "source_name": "CoinDesk - UAE Banking Decree",
@@ -358,12 +304,7 @@
         "Choose regulatory pathway (CBUAE/SCA/VARA/ADGM/DIFC)",
         "Ensure AML/CFT compliance"
       ],
-      "keywords": [
-        "CBUAE",
-        "UAE",
-        "VASP",
-        "licensing"
-      ],
+      "keywords": ["CBUAE", "UAE", "VASP", "licensing"],
       "relevance_score": 10,
       "notes": "Criminal penalties: imprisonment + fines AED 50K-500M. Admin fines up to AED 1B. Hard-locked.",
       "type": "regulatory"
@@ -372,16 +313,9 @@
       "id": "fed-skinny-master-account-dec2026",
       "title": "Federal Reserve Skinny Master Account Program",
       "deadline": "2026-12-31",
-      "mccs": [
-        "6051"
-      ],
-      "regions": [
-        "US"
-      ],
-      "transaction_types": [
-        "Payments",
-        "Settlements"
-      ],
+      "mccs": ["6051"],
+      "regions": ["US"],
+      "transaction_types": ["Payments", "Settlements"],
       "impact_level": "medium",
       "hard_lock": true,
       "source_name": "Latham - US Crypto Policy Tracker",
@@ -394,11 +328,7 @@
         "Implement Fed payment system integration",
         "Maintain regulatory compliance"
       ],
-      "keywords": [
-        "Federal-Reserve",
-        "master-account",
-        "payments"
-      ],
+      "keywords": ["Federal-Reserve", "master-account", "payments"],
       "relevance_score": 6,
       "notes": "Enables direct Fed access for payment firms. Reduces reliance on third-party banks. Hard-locked.",
       "type": "regulatory"
@@ -407,15 +337,9 @@
       "id": "dtc-tokenization-pilot-jun2026",
       "title": "DTC Tokenization Pilot Launch",
       "deadline": "2026-06-30",
-      "mccs": [
-        "6211"
-      ],
-      "regions": [
-        "US"
-      ],
-      "transaction_types": [
-        "Securities"
-      ],
+      "mccs": ["6211"],
+      "regions": ["US"],
+      "transaction_types": ["Securities"],
       "impact_level": "low",
       "hard_lock": true,
       "source_name": "Latham - Regulatory Developments",
@@ -428,12 +352,7 @@
         "Ensure compliance with pilot parameters",
         "Monitor 3-year pilot scope"
       ],
-      "keywords": [
-        "tokenization",
-        "DTC",
-        "securities",
-        "blockchain"
-      ],
+      "keywords": ["tokenization", "DTC", "securities", "blockchain"],
       "relevance_score": 5,
       "notes": "Pilot only, limited scope. Watch for broader tokenization implications. Hard-locked.",
       "type": "regulatory"
@@ -442,16 +361,9 @@
       "id": "eu-uk-travel-rule-dec2026",
       "title": "EU/UK Crypto Travel Rule - Zero Threshold Enforcement",
       "deadline": "2026-12-31",
-      "mccs": [
-        "6051"
-      ],
-      "regions": [
-        "Europe",
-        "UK"
-      ],
-      "transaction_types": [
-        "All crypto transfers"
-      ],
+      "mccs": ["6051"],
+      "regions": ["Europe", "UK"],
+      "transaction_types": ["All crypto transfers"],
       "impact_level": "high",
       "hard_lock": true,
       "source_name": "InnReg - Travel Rule Guide",
@@ -464,13 +376,7 @@
         "Automate compliance processes",
         "Maintain records for 5+ years"
       ],
-      "keywords": [
-        "Travel-Rule",
-        "FATF",
-        "EU",
-        "UK",
-        "KYC"
-      ],
+      "keywords": ["Travel-Rule", "FATF", "EU", "UK", "KYC"],
       "relevance_score": 9,
       "notes": "Zero threshold = massive operational shift. Every transaction needs full KYC data. Hard-locked.",
       "type": "regulatory"
@@ -479,15 +385,9 @@
       "id": "oecd-carf-jan2027",
       "title": "Crypto Asset Reporting Framework (CARF) - First Information Exchange",
       "deadline": "2027-01-01",
-      "mccs": [
-        "6051"
-      ],
-      "regions": [
-        "Global"
-      ],
-      "transaction_types": [
-        "All crypto"
-      ],
+      "mccs": ["6051"],
+      "regions": ["Global"],
+      "transaction_types": ["All crypto"],
       "impact_level": "high",
       "hard_lock": true,
       "source_name": "Chainalysis - Regulatory Round-Up",
@@ -500,13 +400,7 @@
         "Maintain transaction records for tax purposes",
         "Integrate automated tax reporting tools"
       ],
-      "keywords": [
-        "CARF",
-        "tax",
-        "OECD",
-        "reporting",
-        "crypto"
-      ],
+      "keywords": ["CARF", "tax", "OECD", "reporting", "crypto"],
       "relevance_score": 8,
       "notes": "Global crypto tax reporting begins. Non-compliance = penalties + audit risk. Hard-locked.",
       "type": "regulatory"
@@ -515,16 +409,9 @@
       "id": "crypto-gambling-responsible-gaming-dec2026",
       "title": "Crypto Gambling Enhanced Responsible Gaming Requirements",
       "deadline": "2026-12-31",
-      "mccs": [
-        "7995",
-        "6051"
-      ],
-      "regions": [
-        "Global"
-      ],
-      "transaction_types": [
-        "Gambling deposits/withdrawals"
-      ],
+      "mccs": ["7995", "6051"],
+      "regions": ["Global"],
+      "transaction_types": ["Gambling deposits/withdrawals"],
       "impact_level": "high",
       "hard_lock": true,
       "source_name": "XaiGate - Crypto Gambling Regulations",
@@ -537,11 +424,7 @@
         "Flag problem gambling indicators",
         "Maintain audit trail across multiple blockchains"
       ],
-      "keywords": [
-        "crypto-gambling",
-        "responsible-gaming",
-        "player-protection"
-      ],
+      "keywords": ["crypto-gambling", "responsible-gaming", "player-protection"],
       "relevance_score": 9,
       "notes": "Crypto gambling platforms face same responsible gaming rules as fiat. Non-compliance = fines + license suspension. Hard-locked.",
       "type": "regulatory"

@@ -16,12 +16,15 @@ This system gives you 6-12 months advance warning by:
 
 ## Features
 
+- **Hybrid Data Model**: Combines automated scraping with hard-locked manual overrides
 - **Multi-Agent Architecture**: Scraper, Change Detector, Intelligence, Alert, and Orchestrator agents
-- **SQLite Database**: Local persistence with 4 core tables
+- **SQLite Database**: Local persistence with deduplication and conflict resolution
 - **Claude AI Integration**: Intelligent analysis of compliance changes (Opus 4.5 support)
 - **Relevance Scoring**: Filters based on your MCCs, regions, and keywords
+- **MVP MCC Focus**: Pre-configured for Gambling (7995), Crypto (6051), Securities (6211)
+- **Interactive Dashboard**: Professional web UI with filters, search, urgency indicators, and source links
+- **Manual Data Management**: Add/edit compliance items via JSON with complete control
 - **Terminal Alerts**: Color-coded, detailed compliance notifications
-- **Interactive Dashboard**: Professional web UI with filters, search, and exports
 - **Demo Mode**: Test without API calls using realistic data
 - **GitHub Actions**: Automated weekly scans
 - **Easy Deployment**: One-click deploy to Vercel or GitHub Pages
@@ -110,16 +113,28 @@ compliance-monitor/
 │   ├── alert_agent.py            # Terminal output
 │   └── orchestrator.py           # Agent coordination
 ├── config/
-│   ├── sources.yaml              # URLs to monitor
+│   ├── sources.json              # Automated scraping sources
 │   ├── company_profile.yaml      # Your MCCs, regions, keywords
 │   └── settings.yaml             # System configuration
+├── dashboard/
+│   ├── index.html                # Dashboard UI
+│   ├── app.js                    # Dashboard logic
+│   ├── styles.css                # Dashboard styles
+│   ├── data.json                 # Dashboard data (generated)
+│   └── data.js                   # Dashboard data (for local viewing)
 ├── utils/
 │   ├── db_utils.py               # Database functions
-│   └── demo_data.py              # Demo data generator
+│   ├── demo_data.py              # Demo data generator
+│   └── migrate_db.py             # Database migrations
 ├── data/
-│   └── compliance.db             # SQLite database
+│   ├── compliance.db             # SQLite database
+│   └── manual_overrides.json     # Hard-locked manual compliance items
 ├── logs/
 │   └── monitor.log               # Application logs
+├── docs/
+│   ├── MANUAL_DATA_GUIDE.md      # Guide for adding manual data
+│   ├── PRIORITY_GUIDE.md         # Priority classification guide
+│   └── HYBRID_MODEL_V2.md        # Hybrid model documentation
 ├── requirements.txt
 ├── .env.example
 ├── run.py                        # CLI interface
@@ -138,6 +153,9 @@ python run.py demo
 # Run full monitoring scan
 python run.py scan
 
+# Generate interactive dashboard
+python run.py dashboard
+
 # List all compliance items
 python run.py list
 
@@ -149,6 +167,9 @@ python run.py list --min-relevance 8
 
 # Show statistics
 python run.py stats
+
+# Export data to JSON
+python run.py export
 ```
 
 ## Configuration
@@ -196,7 +217,76 @@ alerts:
   min_relevance_score: 5  # Only show items >= 5
 ```
 
+### Add Manual Compliance Items
+
+Add hard-locked manual items that won't be overwritten by scrapers.
+
+Edit `data/manual_overrides.json`:
+
+```json
+{
+  "manual_compliance_items": [
+    {
+      "id": "unique-identifier-2026-01",
+      "title": "Your Compliance Requirement Title",
+      "deadline": "2026-06-30",
+      "mccs": ["7995", "6051", "6211"],
+      "regions": ["UAE", "Global"],
+      "transaction_types": ["AFT", "OCT"],
+      "impact_level": "high",
+      "hard_lock": true,
+      "source_name": "Card Scheme or Regulator Name",
+      "source_url": "https://docs.example.com/compliance",
+      "summary": "Brief summary of the requirement...",
+      "technical_requirements": [
+        "Technical requirement 1",
+        "Technical requirement 2"
+      ],
+      "keywords": ["keyword1", "keyword2"],
+      "relevance_score": 9,
+      "notes": "Internal notes about this requirement",
+      "type": "scheme_mandate"
+    }
+  ]
+}
+```
+
+**Priority Levels:**
+- `high`: Mandatory requirements with severe consequences (fines >$1M, license loss, transaction blocking)
+- `medium`: Important but flexible (moderate penalties, reporting requirements)
+- `low`: Pilot programs, voluntary initiatives
+
+See `docs/MANUAL_DATA_GUIDE.md` for complete instructions and `docs/PRIORITY_GUIDE.md` for priority classification guidance.
+
 ## Architecture
+
+### System Flow Diagram
+
+```mermaid
+graph TD
+    A[ORCHESTRATOR<br/>Coordinates Agent Workflow] --> B[SCRAPER AGENT<br/>Fetches Web Content]
+    A --> C[CHANGE DETECTOR AGENT<br/>Detects Content Diffs]
+    B --> C
+    C --> D[INTELLIGENCE AGENT<br/>Claude AI Analysis]
+    D --> E[ALERT AGENT<br/>Terminal Notifications]
+    B --> E
+    E --> F[DASHBOARD<br/>Web UI with Filters]
+
+    style A fill:#4A90E2,stroke:#2E5C8A,stroke-width:3px,color:#fff
+    style B fill:#50C878,stroke:#2E7D4E,stroke-width:2px,color:#fff
+    style C fill:#50C878,stroke:#2E7D4E,stroke-width:2px,color:#fff
+    style D fill:#9B59B6,stroke:#6C3483,stroke-width:2px,color:#fff
+    style E fill:#E67E22,stroke:#A95D1C,stroke-width:2px,color:#fff
+    style F fill:#E74C3C,stroke:#A93226,stroke-width:2px,color:#fff
+```
+
+**Flow:**
+1. **Orchestrator** coordinates the entire workflow
+2. **Scraper Agent** fetches content from configured sources
+3. **Change Detector Agent** compares new snapshots with previous versions
+4. **Intelligence Agent** analyzes changes using Claude AI to extract compliance requirements
+5. **Alert Agent** displays findings in terminal and passes to dashboard
+6. **Dashboard** provides interactive web UI for filtering and searching compliance items
 
 ### Multi-Agent System
 
@@ -230,10 +320,41 @@ alerts:
    - Manages errors
    - Logs everything
 
+### Hybrid Data Model
+
+The system uses a **3-layer hybrid architecture** combining manual and automated data:
+
+**Layer 1: Hard-Locked Manual Overrides**
+- Stored in `data/manual_overrides.json`
+- Cannot be overwritten by automated scrapers
+- Highest priority in conflict resolution
+- Manually curated compliance items with verified deadlines and source URLs
+
+**Layer 2: Automated Scraped Items**
+- Generated by scraping configured sources
+- Analyzed by Claude AI Intelligence Agent
+- Automatically extracted deadlines, MCCs, regions, and requirements
+- Stored in SQLite database
+
+**Layer 3: Conflict Resolution & Deduplication**
+- Uses MD5 hash based on (title + deadline + region)
+- Automated items that conflict with manual items are skipped
+- Prevents duplicate entries in dashboard
+- Ensures data quality and consistency
+
+**Benefits:**
+- ✅ Full control over critical compliance items
+- ✅ Automated discovery of new requirements
+- ✅ No duplicate entries
+- ✅ Manual items always take precedence
+- ✅ Easy to add/edit compliance data via JSON
+
+See `docs/HYBRID_MODEL_V2.md` for complete implementation details.
+
 ### Database Schema
 
 **sources**: URLs being monitored
-- id, name, url, type, active, created_at, updated_at
+- id, name, url, region, tier, parser_strategy, active, created_at, updated_at
 
 **snapshots**: Content snapshots with hashes
 - id, source_id, content, content_hash, scraped_at, status, error_message
@@ -242,7 +363,13 @@ alerts:
 - id, source_id, old_snapshot_id, new_snapshot_id, diff_text, detected_at, analyzed
 
 **compliance_items**: Parsed requirements
-- id, change_id, source_id, title, summary, deadline, impact_level, mccs, regions, transaction_types, technical_requirements, keywords, relevance_score, created_at
+- id, change_id, source_id, title, summary, deadline, is_estimated, impact_level, mccs, regions, transaction_types, technical_requirements, keywords, relevance_score, hard_lock, manual_id, type, created_at
+
+**New fields for Hybrid Model:**
+- `hard_lock`: Boolean flag indicating manual override (cannot be modified by scrapers)
+- `manual_id`: Reference ID from manual_overrides.json
+- `is_estimated`: Boolean indicating if deadline is estimated vs. confirmed
+- `type`: Compliance type (scheme_mandate, regulatory, tax_reporting, etc.)
 
 ## Relevance Scoring
 
@@ -263,26 +390,36 @@ Items are scored 1-10 based on:
 
 ## Roadmap
 
-### MVP (Current)
+### Phase 1 - MVP ✅ Complete
 - ✅ Multi-agent architecture
-- ✅ SQLite database
-- ✅ Claude AI integration
+- ✅ SQLite database with deduplication
+- ✅ Claude AI integration (Opus 4.5 support)
 - ✅ Terminal alerts
 - ✅ Demo data
+- ✅ Hybrid data model (manual + automated)
+- ✅ Interactive dashboard with filters
+- ✅ MVP MCC focus (Gambling, Crypto, Securities)
+- ✅ Manual data management via JSON
+- ✅ Priority classification (HIGH/MEDIUM/LOW)
+- ✅ JSON export
+- ✅ Vercel deployment support
 
-### Phase 2
-- Dashboard (HTML/CSS/JS)
-- Timeline view
-- JSON export
-- Email alerts
-- Scheduled scans
+### Phase 2 - In Progress
+- ⏳ GitHub Actions scheduled scans
+- ⏳ Email alerts via SendGrid
+- ⏳ Slack webhook notifications
+- ⏳ Timeline view in dashboard
+- ⏳ Expanded MCC coverage beyond MVP
+- ⏳ PDF report generation
 
-### Phase 3
-- Multi-user support
-- Web configuration UI
-- Postgres database
-- Hosted deployment
-- API access
+### Phase 3 - Future
+- 📋 Multi-user support with authentication
+- 📋 Web configuration UI (no YAML editing)
+- 📋 Postgres database migration
+- 📋 Fully hosted SaaS deployment
+- 📋 RESTful API access
+- 📋 Mobile app (iOS/Android)
+- 📋 Webhook integrations (Zapier, Make.com)
 
 ## Example Output
 
