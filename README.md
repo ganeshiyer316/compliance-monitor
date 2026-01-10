@@ -1,5 +1,11 @@
 # Payment Compliance Monitor
 
+[![GitHub stars](https://img.shields.io/github/stars/ganeshiyer316/compliance-monitor?style=social)](https://github.com/ganeshiyer316/compliance-monitor/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/ganeshiyer316/compliance-monitor?style=social)](https://github.com/ganeshiyer316/compliance-monitor/network/members)
+[![GitHub issues](https://img.shields.io/github/issues/ganeshiyer316/compliance-monitor)](https://github.com/ganeshiyer316/compliance-monitor/issues)
+[![GitHub license](https://img.shields.io/github/license/ganeshiyer316/compliance-monitor)](https://github.com/ganeshiyer316/compliance-monitor/blob/main/LICENSE)
+[![Deploy with Vercel](https://img.shields.io/badge/Deploy-Vercel-black)](https://vercel.com/new/clone?repository-url=https://github.com/ganeshiyer316/compliance-monitor)
+
 Automated system for monitoring Visa, Mastercard, PSP, and regulatory changes affecting payment businesses.
 
 ## Problem
