@@ -207,7 +207,7 @@ function createItemCard(item) {
 
     // Source
     const sourceName = item.source_name || 'Unknown';
-    const url = item.url || '#';
+    const url = item.source_url || '#';
 
     return `
         <div class="item ${impactLevel}">
