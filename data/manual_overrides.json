@@ -9,8 +9,8 @@
       "transaction_types": ["AFT"],
       "impact_level": "high",
       "hard_lock": true,
-      "source_name": "Mastercard",
-      "source_url": "https://www.mastercard.com/news/",
+      "source_name": "Checkout.com - AFT Compliance Deadlines",
+      "source_url": "https://support.checkout.com/hc/en-us/articles/23424218845970-What-are-the-compliance-dates-to-switch-to-Account-Funding-Transactions-AFTs",
       "summary": "Mastercard mandates Account Funding Transactions (AFT) implementation for money transfer services (MCC 4829), crypto merchants (6538), and prepaid card providers (6540) operating in New Zealand. All qualifying merchants must migrate from OCTs to AFTs by January 31, 2026.",
       "technical_requirements": [
         "Implement AFT API instead of OCT",
@@ -32,8 +32,8 @@
       "transaction_types": ["AFT"],
       "impact_level": "high",
       "hard_lock": true,
-      "source_name": "Mastercard",
-      "source_url": "https://www.mastercard.com/news/",
+      "source_name": "Checkout.com - AFT Compliance Deadlines",
+      "source_url": "https://support.checkout.com/hc/en-us/articles/23424218845970-What-are-the-compliance-dates-to-switch-to-Account-Funding-Transactions-AFTs",
       "summary": "Global Mastercard AFT mandate extends to UK, Europe, United States, and Singapore for money transfer services (MCC 4829), crypto merchants (6538), and prepaid card providers (6540). All qualifying merchants in these regions must migrate to AFT by February 28, 2026.",
       "technical_requirements": [
         "Implement AFT API for cross-border transactions",
