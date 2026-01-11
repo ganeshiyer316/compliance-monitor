@@ -1,30 +1,7 @@
 {
-  "last_updated": "2026-01-11T10:30:00.000000",
-  "total_items": 19,
+  "last_updated": "2026-01-11T11:00:00.000000",
+  "total_items": 16,
   "items": [
-    {
-      "id": "mastercard-aft-nz-jan2026",
-      "title": "Mastercard AFT Mandate for New Zealand (MCC 4829, 6538, 6540)",
-      "deadline": "2026-01-31",
-      "mccs": ["4829", "6538", "6540"],
-      "regions": ["New Zealand"],
-      "transaction_types": ["AFT"],
-      "impact_level": "high",
-      "hard_lock": true,
-      "source_name": "Checkout.com - AFT Compliance Deadlines",
-      "source_url": "https://support.checkout.com/hc/en-us/articles/23424218845970-What-are-the-compliance-dates-to-switch-to-Account-Funding-Transactions-AFTs",
-      "summary": "Mastercard mandates Account Funding Transactions (AFT) implementation for money transfer services (MCC 4829), crypto merchants (6538), and prepaid card providers (6540) operating in New Zealand. All qualifying merchants must migrate from OCTs to AFTs by January 31, 2026.",
-      "technical_requirements": [
-        "Implement AFT API instead of OCT",
-        "Include sender and recipient data in transactions",
-        "Update transaction processing systems",
-        "Ensure compliance with local NZ regulations"
-      ],
-      "keywords": ["AFT", "mastercard-mandate", "new-zealand", "money-transfer", "crypto", "prepaid"],
-      "relevance_score": 9,
-      "notes": "Verified deadline from Mastercard official communications. Hard-locked.",
-      "type": "scheme_mandate"
-    },
     {
       "id": "ukgc-bonus-wagering-jan2026",
       "title": "UK Gambling Commission - Bonus Wagering Restrictions",
@@ -48,29 +25,6 @@
       "relevance_score": 10,
       "notes": "Non-compliance may result in licence review, fines up to £20M, or suspension. Hard-locked.",
       "type": "regulatory"
-    },
-    {
-      "id": "mastercard-aft-global-feb2026",
-      "title": "Mastercard AFT Mandate for UK, Europe, US, Singapore (MCC 4829, 6538, 6540)",
-      "deadline": "2026-02-28",
-      "mccs": ["4829", "6538", "6540"],
-      "regions": ["UK", "Europe", "USA", "Singapore"],
-      "transaction_types": ["AFT"],
-      "impact_level": "high",
-      "hard_lock": true,
-      "source_name": "Checkout.com - AFT Compliance Deadlines",
-      "source_url": "https://support.checkout.com/hc/en-us/articles/23424218845970-What-are-the-compliance-dates-to-switch-to-Account-Funding-Transactions-AFTs",
-      "summary": "Global Mastercard AFT mandate extends to UK, Europe, United States, and Singapore for money transfer services (MCC 4829), crypto merchants (6538), and prepaid card providers (6540). All qualifying merchants in these regions must migrate to AFT by February 28, 2026.",
-      "technical_requirements": [
-        "Implement AFT API for cross-border transactions",
-        "Collect and transmit sender/recipient data",
-        "Support regional compliance variations",
-        "Update settlement systems"
-      ],
-      "keywords": ["AFT", "mastercard-mandate", "global", "money-transfer", "crypto", "prepaid", "uk", "europe", "usa"],
-      "relevance_score": 10,
-      "notes": "Verified deadline from Mastercard official communications. Hard-locked.",
-      "type": "scheme_mandate"
     },
     {
       "id": "ukgc-financial-reporting-mar2026",
@@ -165,30 +119,6 @@
       "keywords": ["AFT", "mastercard-mandate", "canada", "crypto", "securities", "brokerage"],
       "relevance_score": 8,
       "notes": "Verified deadline for Canadian crypto and securities markets. Hard-locked.",
-      "type": "scheme_mandate"
-    },
-    {
-      "id": "visa-subscription-controls-europe-apr2026",
-      "title": "Visa Cardholder Controls UI Mandate for Subscription Services (Europe)",
-      "deadline": "2026-04-18",
-      "mccs": ["5968"],
-      "regions": ["Europe"],
-      "transaction_types": ["Recurring"],
-      "impact_level": "medium",
-      "hard_lock": true,
-      "source_name": "Visa",
-      "source_url": "https://www.visa.com/",
-      "summary": "Visa mandates implementation of cardholder controls UI for subscription and continuity services (MCC 5968) in Europe. Merchants must provide easy-to-use interfaces for customers to view, modify, or cancel subscriptions directly through their card issuer's platform.",
-      "technical_requirements": [
-        "Implement Visa Transaction Controls API",
-        "Provide subscription management UI in cardholder apps",
-        "Support real-time subscription modifications",
-        "Enable one-click subscription cancellation",
-        "Compliance with European consumer protection laws"
-      ],
-      "keywords": ["visa", "subscription", "cardholder-controls", "europe", "recurring-payments", "consumer-protection"],
-      "relevance_score": 7,
-      "notes": "European mandate for subscription transparency and control. Hard-locked.",
       "type": "scheme_mandate"
     },
     {
